@@ -8,14 +8,14 @@ import { LayoutProps } from './Layout.props'
 
 export const Layout = ({ children }: LayoutProps): JSX.Element => {
   return (
-    <>
-      <Header />
+    <div className={styles.wrapper}>
+      <Header className={styles.header} />
       <div>
-        <Sidebar />
+        <Sidebar className={styles.sidebar} />
         <div>{children}</div>
       </div>
-      <Footer />
-    </>
+      <Footer className={styles.footer} />
+    </div>
   )
 }
 
