@@ -11,16 +11,7 @@ const firstCategory = 0
 
 function Course({ menu, page, products }: CourseProps) {
   const [rating, setRating] = useState<number>(0)
-  return (
-    <>
-      <ul>
-        {menu &&
-          menu.map((m) => (
-            <li key={m._id.secondCategory}>{m._id.secondCategory}</li>
-          ))}
-      </ul>
-    </>
-  )
+  return <></>
 }
 
 export default withLayout(Course)
