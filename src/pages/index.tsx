@@ -8,15 +8,7 @@ import { MenuItem } from 'interface/menu.interface'
 function Home({ menu }: HomeProps) {
   const [rating, setRating] = useState<number>(0)
 
-  return (
-    <>
-      <ul>
-        {menu.map((m) => (
-          <li key={m._id.secondCategory}>{m._id.secondCategory}</li>
-        ))}
-      </ul>
-    </>
-  )
+  return <></>
 }
 
 export default withLayout(Home)

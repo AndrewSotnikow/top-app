@@ -16,7 +16,7 @@ export interface ProductModel {
   updatedAt: string
   __v: number
   html: string
-  blog: Blog
+  blog: BlogItem
   companyId: string
   clicks: number
   reviews: ReviewModel[]
@@ -29,7 +29,7 @@ export interface ProductCharacteristic {
   value: string
 }
 
-export interface Blog {
+export interface BlogItem {
   text: string
   _id: string
   bigImage?: string
