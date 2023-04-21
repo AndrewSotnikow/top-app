@@ -58,11 +58,8 @@
 html,
 body {
   overflow-x: hidden;
-
   max-width: 100vw;
-
   color: var(--black);
-
   background: #f5f6f8;
 }
 
@@ -78,7 +75,6 @@ body {
 
 a {
   text-decoration: none;
-
   color: inherit;
 }
 
