@@ -46,6 +46,17 @@ export const Menu = ({ ...props }: MenuProps): JSX.Element => {
 
   const router = useRouter()
 
+  const openSecondLevel = (secondCategory: string) => {
+    setMenu &&
+      setMenu(
+        menu.map((m) => {
+          if (m._id.secondCategory == secondCategory) {
+            m.isOpened = !m.isOpened
+          }
+          return m
+        })
+      )
+  }
   const buildFirstLevel = () => {
     return (
       <>
@@ -73,12 +84,15 @@ export const Menu = ({ ...props }: MenuProps): JSX.Element => {
       <ul className={styles.secondBlock}>
         {menu.map((item) => {
           if (
-            item.pages.map((p) => p.alias.includes(router.asPath.split('/')[2]))
+            item.pages.map((p) => p.alias).includes(router.asPath.split('/')[2])
           ) {
             item.isOpened = true
           }
           return (
-            <li key={item._id.secondCategory}>
+            <li
+              key={item._id.secondCategory}
+              onClick={() => openSecondLevel(item._id.secondCategory)}
+            >
               <div className={styles.secondLevel}>
                 {item._id.secondCategory}
               </div>
@@ -102,7 +116,7 @@ export const Menu = ({ ...props }: MenuProps): JSX.Element => {
         href={`/${route}/${page.alias}`}
         key={page._id.toString()}
         className={cn(styles.thirdLevel, {
-          [styles.thirdLevelActive]: true,
+          [styles.thirdLevelActive]: `/${route}/${page.alias}` == router.asPath,
         })}
       >
         {page.category}
