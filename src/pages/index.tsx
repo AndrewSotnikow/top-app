@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Htag, Paragraph, Button, Rating } from 'components/index'
 import { withLayout } from 'layout/Layout'
 import { GetStaticProps } from 'next'
@@ -7,6 +7,8 @@ import { MenuItem } from 'interface/menu.interface'
 
 function Home({ menu }: HomeProps) {
   const [rating, setRating] = useState<number>(0)
+
+
 
   return <></>
 }

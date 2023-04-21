@@ -1,4 +1,4 @@
-import { createContext, PropsWithChildren, ReactNode } from 'react'
+import { createContext, PropsWithChildren, useState } from 'react'
 import { MenuItem, TopLevelCategory } from '../interface'
 
 export interface IAppContext {
@@ -17,7 +17,7 @@ export const AppContextProvider = ({
   firstCategory,
   children,
 }: PropsWithChildren<IAppContext>): JSX.Element => {
-  const [menuState, setMenuState] = setState<MenuItem[]>(menu)
+  const [menuState, setMenuState] = useState<MenuItem[]>(menu)
   const setMenu = (newMenu: MenuItem[]) => {
     setMenuState(newMenu)
   }
@@ -27,8 +27,4 @@ export const AppContextProvider = ({
       {children}
     </AppContext.Provider>
   )
-}
-
-function setState<T>(menu: MenuItem[]): [any, any] {
-  throw new Error('Function not implemented.')
 }
