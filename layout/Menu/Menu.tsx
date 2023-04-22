@@ -60,11 +60,11 @@ export const Menu = ({ ...props }: MenuProps): JSX.Element => {
             item.isOpened = true
           }
           return (
-            <li
-              key={item._id.secondCategory}
-              onClick={() => openSecondLevel(item._id.secondCategory)}
-            >
-              <div className={styles.secondLevel}>
+            <li key={item._id.secondCategory}>
+              <div
+                className={styles.secondLevel}
+                onClick={() => openSecondLevel(item._id.secondCategory)}
+              >
                 {item._id.secondCategory}
               </div>
               <div
