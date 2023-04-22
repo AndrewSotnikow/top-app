@@ -13,9 +13,8 @@ export const Layout = ({ children }: LayoutProps): JSX.Element => {
       <Header className={styles.header} />
       <Sidebar className={styles.sidebar} />
 
-      <div>
-        <div>{children}</div>
-      </div>
+      <main className={styles.body}>{children}</main>
+
       <Footer className={styles.footer} />
     </div>
   )

@@ -1,6 +1,6 @@
 import { ButtonProps } from './Button.props'
 import cn from 'classnames'
-import ArrowIcon from '@/public/svg/arrow.svg'
+import ArrowIcon from '@/helpers/svg/arrow.svg'
 import styles from './Button.module.css'
 
 export const Button = ({

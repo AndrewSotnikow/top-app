@@ -7,8 +7,6 @@ import { MenuItem } from 'interface/menu.interface'
 
 function Home({ menu }: HomeProps) {
 
-
-
   return <></>
 }
 
