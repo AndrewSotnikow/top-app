@@ -1,18 +1,13 @@
-import { useEffect, useState } from 'react'
-import { Htag, Paragraph, Button, Rating } from 'components/index'
 import { withLayout } from 'layout/Layout'
 import { GetStaticProps } from 'next'
 import axios from 'axios'
 import { MenuItem } from 'interface/menu.interface'
 
-function Home({ menu }: HomeProps) {
-
-
-
-  return <></>
+function Search() {
+  return <>Search</>
 }
 
-export default withLayout(Home)
+export default withLayout(Search)
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
   const firstCategory = 0
