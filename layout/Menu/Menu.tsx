@@ -1,45 +1,16 @@
 import { MenuProps } from './Menu.props'
 import cn from 'classnames'
+
 import { useContext } from 'react'
-
-import styles from './Menu.module.css'
-
 import { AppContext } from 'context/app.context'
-import { FirstLevelMenuItem, PageItem } from 'interface/menu.interface'
-import CourseIcon from '@/public/svg/courses.svg'
-import ServiceIcon from '@/public/svg/services.svg'
-import BooksIcon from '@/public/svg/books.svg'
-import ProductsIcon from '@/public/svg/products.svg'
-import { TopLevelCategory } from 'interface'
+
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 
-const firstLevelMenu: FirstLevelMenuItem[] = [
-  {
-    route: 'courses',
-    name: 'Курсы',
-    icon: <CourseIcon />,
-    id: TopLevelCategory.Courses,
-  },
-  {
-    route: 'courses',
-    name: 'Сервисы',
-    icon: <ServiceIcon />,
-    id: TopLevelCategory.Services,
-  },
-  {
-    route: 'courses',
-    name: 'Книги',
-    icon: <BooksIcon />,
-    id: TopLevelCategory.Books,
-  },
-  {
-    route: 'courses',
-    name: 'Продукты',
-    icon: <ProductsIcon />,
-    id: TopLevelCategory.Products,
-  },
-]
+import styles from './Menu.module.css'
+
+import { FirstLevelMenuItem, PageItem } from 'interface/menu.interface'
+import { firstLevelMenu } from 'helpers/helpers'
 
 export const Menu = ({ ...props }: MenuProps): JSX.Element => {
   const { menu, setMenu, firstCategory } = useContext(AppContext)
