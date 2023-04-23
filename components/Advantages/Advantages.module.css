@@ -14,4 +14,7 @@
 
 .vline {
   border-left: 1px solid var(--gray-light);
+  width: 1px;
+  height: 100%;
+  margin: 0 auto;
 }
