@@ -1,12 +1,12 @@
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
 
-export enum ESort {
+export enum SortEnum {
   Rating,
   Price,
 }
 
 export interface ISortProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
-  sort: ESort;
-  setSort: (sort: ESort) => void;
+  sort: SortEnum;
+  setSort: (sort: SortEnum) => void;
 }
