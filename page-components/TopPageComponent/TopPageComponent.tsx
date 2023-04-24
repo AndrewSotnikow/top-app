@@ -4,8 +4,9 @@ import { HhData, Htag, Sort, Tag } from '@/components/index'
 import { TopLevelCategory } from 'interface'
 import { Advantages } from '@/components/Advantages/Advantages'
 import { SortEnum } from '@/components/Sort/Sort.props'
-import { useReducer } from 'react'
+import { useEffect, useReducer } from 'react'
 import { sortReducer } from './sort.reducer'
+import { Product } from '@/components/Product/Product'
 
 export const TopPageComponent = ({
   page,
@@ -19,6 +20,11 @@ export const TopPageComponent = ({
       sort: SortEnum.Rating,
     }
   )
+
+  useEffect(() => {
+    // @ts-ignore
+    dispatchSort({ type: 'reset', initialState: products })
+  }, [products])
 
   const setSort = (sort: SortEnum) => {
     dispatchSort({ type: sort })
@@ -41,7 +47,11 @@ export const TopPageComponent = ({
       </div>
       <div>
         {sortedProducts &&
-          sortedProducts.map((p) => <div key={p._id}>{p.title}</div>)}
+          sortedProducts.map((p) => (
+            <Product role='listitem' layout key={p._id} product={p}>
+              {p.title}
+            </Product>
+          ))}
       </div>
       <div className={styles.hhTitle}>
         <Htag tag='h2'>Вакансии - {page.category}</Htag>
