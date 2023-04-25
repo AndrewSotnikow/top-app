@@ -1,12 +1,7 @@
+import { IReviewModel } from 'interfaces/product.interface';
 import { DetailedHTMLProps, HTMLAttributes } from 'react';
 
-export enum SortEnum {
-  Rating,
-  Price,
-}
-
-export interface ISortProps
+export interface IReviewProps
   extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
-  sort: SortEnum;
-  setSort: (sort: SortEnum) => void;
+  review: IReviewModel;
 }

@@ -16,7 +16,7 @@ export const Button = ({
         [styles.primary]: appearance == 'primary',
         [styles.ghost]: appearance == 'ghost',
       })}
-      {...props}
+      type='button'
     >
       {children}
       {arrow !== 'none' && (
