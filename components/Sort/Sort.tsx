@@ -10,8 +10,6 @@ export const Sort = ({
   className,
   ...props
 }: ISortProps): JSX.Element => {
-  console.log(sort)
-
   return (
     <div className={cn(styles.sort, className)} {...props}>
       <div className={styles.sortName} id='sort'>

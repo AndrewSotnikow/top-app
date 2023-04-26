@@ -3,10 +3,7 @@ import { Button } from 'components/Button/Button'
 import { Card } from 'components/Card/Card'
 import { Divider } from 'components/Divider/Divider'
 import { Rating } from 'components/Rating/Rating'
-// import { Review } from 'components/Review/Review';
-// import { ReviewForm } from 'components/ReviewForm/ReviewForm';
 import { Tag } from 'components/Tag/Tag'
-// import { motion } from 'framer-motion'
 import { declOfNum, priceRu } from 'helpers/helpers'
 import Image from 'next/image'
 import { ForwardedRef, forwardRef, useRef, useState } from 'react'
@@ -26,9 +23,11 @@ export const Product = motion(
       const reviewRef = useRef<HTMLDivElement>(null)
 
       const variants = {
-        visible: { opacity: 1, height: 'auto' },
-        hidden: { opacity: 0, height: 0 },
+        visible: { opacity: 1, height: 'auto', position: 'static' },
+        hidden: { opacity: 0, height: 0, position: 'relative', zIndex: '-1' },
       }
+
+      console.log(isReviewOpened)
 
       const scrollToReview = () => {
         setIsReviewOpened(true)
@@ -97,7 +96,7 @@ export const Product = motion(
             </div>
 
             <div className={styles.rateTitle}>
-              <a href='#ref'>
+              <a href='#ref' onClick={scrollToReview}>
                 {product.reviewCount}
                 {declOfNum(product.reviewCount, ['отзыв', 'отзыва', 'отзывов'])}
               </a>
@@ -134,7 +133,7 @@ export const Product = motion(
                 appearance='ghost'
                 arrow={isReviewOpened ? 'down' : 'right'}
                 className={styles.reviewButton}
-                // onClick={() => setIsReviewOpened(!isReviewOpened)}
+                onClick={() => setIsReviewOpened(!isReviewOpened)}
                 aria-expanded={isReviewOpened}
               >
                 Читать отзывы
