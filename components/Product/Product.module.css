@@ -52,7 +52,7 @@
 }
 
 .title {
-  align-self: flex-end;
+  align-self: center;
 
   font-size: 20px;
   font-weight: 600;
@@ -65,7 +65,7 @@
 
 .price,
 .credit {
-  align-self: flex-end;
+  align-self: center;
 
   font-size: 20px;
   line-height: 27px;
@@ -81,7 +81,7 @@
 }
 
 .rating {
-  align-self: flex-end;
+  align-self: center;
 }
 
 .description {
