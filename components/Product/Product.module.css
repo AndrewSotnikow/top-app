@@ -154,6 +154,7 @@
   overflow: hidden;
 
   padding: 30px;
+  position: relative;
 }
 
 .rateTitle a {
