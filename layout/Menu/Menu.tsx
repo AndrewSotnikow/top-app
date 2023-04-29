@@ -1,7 +1,7 @@
 import { MenuProps } from './Menu.props'
 import cn from 'classnames'
 
-import { useContext } from 'react'
+import { useContext, KeyboardEvent } from 'react'
 import { AppContext } from 'context/app.context'
 
 import Link from 'next/link'
@@ -29,6 +29,12 @@ export const Menu = ({ ...props }: MenuProps): JSX.Element => {
           return m
         })
       )
+  }
+  const openSecondLevelKey = (key: KeyboardEvent, secondCategory: string) => {
+    if (key.code === 'Space' || key.code === 'Enter') {
+      key.preventDefault()
+      openSecondLevel(secondCategory)
+    }
   }
 
   const variants = {
@@ -82,7 +88,13 @@ export const Menu = ({ ...props }: MenuProps): JSX.Element => {
             item.isOpened = true
           }
           return (
-            <li key={item._id.secondCategory}>
+            <li
+              key={item._id.secondCategory}
+              tabIndex={0}
+              onKeyDown={(key: KeyboardEvent) =>
+                openSecondLevelKey(key, item._id.secondCategory)
+              }
+            >
               <div
                 className={styles.secondLevel}
                 onClick={() => openSecondLevel(item._id.secondCategory)}
@@ -96,7 +108,11 @@ export const Menu = ({ ...props }: MenuProps): JSX.Element => {
                 animate={item.isOpened ? 'visible' : 'hidden'}
                 className={styles.secondLevelBlock}
               >
-                {buildThirdLevel(item.pages, menuItem.route)}
+                {buildThirdLevel(
+                  item.pages,
+                  menuItem.route,
+                  item.isOpened ?? false
+                )}
               </motion.div>
             </li>
           )
@@ -105,7 +121,11 @@ export const Menu = ({ ...props }: MenuProps): JSX.Element => {
     )
   }
 
-  const buildThirdLevel = (pages: PageItem[], route: string) => {
+  const buildThirdLevel = (
+    pages: PageItem[],
+    route: string,
+    isOpened: boolean
+  ) => {
     return pages.map((page) => (
       <motion.div key={page._id.toString()} variants={variantsChildren}>
         <Link
@@ -115,6 +135,7 @@ export const Menu = ({ ...props }: MenuProps): JSX.Element => {
             [styles.thirdLevelActive]:
               `/${route}/${page.alias}` == router.asPath,
           })}
+          tabIndex={isOpened ? 0 : -1}
         >
           {page.category}
         </Link>
