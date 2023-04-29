@@ -22,16 +22,11 @@ export const Product = motion(
       const [isReviewOpened, setIsReviewOpened] = useState<boolean>(false)
       const reviewRef = useRef<HTMLDivElement>(null)
 
-      // const variants = {
-      //   visible: { opacity: 1, height: 'auto', position: 'static' },
-      //   hidden: { opacity: 0, height: 0, position: 'relative', zIndex: '-1' },
-      // }
       const variants = {
         visible: { opacity: 1, height: 'auto' },
         hidden: { opacity: 0, height: 0 },
       }
 
-      console.log(product)
 
       const scrollToReview = () => {
         setIsReviewOpened(true)
