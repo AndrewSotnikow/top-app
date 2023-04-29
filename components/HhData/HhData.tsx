@@ -1,15 +1,15 @@
-import { Card } from 'components/Card/Card';
-import { priceRu } from 'helpers/helpers';
-import styles from './HhData.module.css';
-import { IHhDataProps } from './HhData.props';
-import RateIcon from './rate.svg';
+import { Card } from 'components/Card/Card'
+import { priceRu } from 'helpers/helpers'
+import styles from './HhData.module.css'
+import { HhDataProps } from './HhData.props'
+import RateIcon from './rate.svg'
 
 export const HhData = ({
   count,
   juniorSalary,
   middleSalary,
   seniorSalary,
-}: IHhDataProps): JSX.Element => {
+}: HhDataProps): JSX.Element => {
   return (
     <div className={styles.hh}>
       <Card className={styles.count}>
@@ -46,5 +46,5 @@ export const HhData = ({
         </div>
       </Card>
     </div>
-  );
-};
+  )
+}

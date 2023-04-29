@@ -1,5 +1,5 @@
-import { ITopPageAdvantage } from 'interfaces/page.interface';
+import { TopPageAdvantage } from 'interface'
 
 export interface IAdvantagesProps {
-  advantages: ITopPageAdvantage[];
+  advantages: TopPageAdvantage[]
 }
