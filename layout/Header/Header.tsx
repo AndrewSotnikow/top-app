@@ -12,7 +12,7 @@ import Link from 'next/link'
 export const Header = ({ className, ...props }: IHeaderProps): JSX.Element => {
   const [isOpened, setIsOpened] = useState<boolean>(false)
   const router = useRouter()
-  const shouldReudceMotion = useReducedMotion()
+  const shouldReduceMotion = useReducedMotion()
 
   useEffect(() => {
     setIsOpened(false)
@@ -27,7 +27,7 @@ export const Header = ({ className, ...props }: IHeaderProps): JSX.Element => {
       },
     },
     closed: {
-      opacity: shouldReudceMotion ? 1 : 0,
+      opacity: shouldReduceMotion ? 1 : 0,
       x: '100%',
     },
   }

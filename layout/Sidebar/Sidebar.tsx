@@ -11,12 +11,12 @@ export const Sidebar = ({
   ...props
 }: ISidebarProps): JSX.Element => {
   return (
-    <div className={cn(className, styles.sidebar)} {...props}>
+    <aside className={cn(className, styles.sidebar)} {...props} role='m'>
       <Link href='/'>
         <Logo className={styles.logo} />
       </Link>
       <Search />
       <Menu />
-    </div>
+    </aside>
   )
 }

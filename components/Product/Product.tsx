@@ -27,7 +27,6 @@ export const Product = motion(
         hidden: { opacity: 0, height: 0 },
       }
 
-
       const scrollToReview = () => {
         setIsReviewOpened(true)
         reviewRef.current?.scrollIntoView({
@@ -51,23 +50,23 @@ export const Product = motion(
             <div className={styles.title}>{product.title}</div>
             <div className={styles.price}>
               <span>
-                <span className='visualyHidden'>цена</span>
+                <span className='visuallyHidden'>цена</span>
                 {priceRu(product.price)}
               </span>
               {product.oldPrice && (
                 <Tag className={styles.oldPrice} color='green' size={'small'}>
-                  <span className='visualyHidden'>скидка</span>
+                  <span className='visuallyHidden'>скидка</span>
                   {priceRu(product.price - product.oldPrice)}
                 </Tag>
               )}
             </div>
             <div className={styles.credit}>
-              <span className='visualyHidden'>кредит</span>
+              <span className='visuallyHidden'>кредит</span>
               {priceRu(product.credit)} /{' '}
               <span className={styles.month}>мес</span>
             </div>
             <div className={styles.rating}>
-              <span className='visualyHidden'>
+              <span className='visuallyHidden'>
                 {'рейтинг' + (product.reviewAvg ?? product.initialRating)}
               </span>
               <Rating
