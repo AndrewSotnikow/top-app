@@ -3,6 +3,7 @@ import { Noto_Sans } from 'next/font/google'
 import '../styles/globals.css'
 import Head from 'next/head'
 import ym, { YMInitializer } from 'react-yandex-metrika'
+import Router from 'next/router'
 
 const notoSans = Noto_Sans({
   weight: ['300', '400', '500', '600'],
@@ -10,7 +11,7 @@ const notoSans = Noto_Sans({
 })
 
 export default function App({ Component, pageProps, router }: AppProps) {
-  router.events.on('routeChangeComplete', (url: string) => {
+  Router.events.on('routeChangeComplete', (url: string) => {
     if (typeof window !== 'undefined') {
       ym('hit', url)
     }
