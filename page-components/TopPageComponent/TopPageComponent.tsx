@@ -7,6 +7,7 @@ import { SortEnum } from '@/components/Sort/Sort.props'
 import { useEffect, useReducer } from 'react'
 import { sortReducer } from './sort.reducer'
 import { Product } from '@/components/Product/Product'
+import { useReducedMotion } from 'framer-motion'
 
 export const TopPageComponent = ({
   page,
@@ -20,6 +21,8 @@ export const TopPageComponent = ({
       sort: SortEnum.Rating,
     }
   )
+
+  const shouldReduceMotion = useReducedMotion()
 
   useEffect(() => {
     // @ts-ignore
@@ -45,10 +48,15 @@ export const TopPageComponent = ({
         )}
         <Sort sort={sort} setSort={setSort} />
       </div>
-      <div>
+      <div role='list'>
         {sortedProducts &&
           sortedProducts.map((p) => (
-            <Product role='listitem' layout key={p._id} product={p}>
+            <Product
+              role='listitem'
+              layout={shouldReduceMotion ? true : false}
+              key={p._id}
+              product={p}
+            >
               {p.title}
             </Product>
           ))}
