@@ -3,7 +3,7 @@ import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next'
 import axios from 'axios'
 import { MenuItem } from 'interface/menu.interface'
 import { firstLevelMenu } from 'helpers/helpers'
-import { ParsedUrlQuery } from 'node:querystring'
+import { ParsedUrlQuery } from 'querystring'
 
 function Type({ firstCategory }: TypeProps) {
   return <>Type</>
